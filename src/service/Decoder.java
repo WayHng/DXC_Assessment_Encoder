@@ -4,12 +4,10 @@
 */
 package service;
 
-public class Decoder
-{
+public class Decoder {
     
 
-    public Decoder()
-    {
+    public Decoder() {
 
     }
 }

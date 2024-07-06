@@ -8,8 +8,7 @@ import test.*;
 
 public class Main 
 {
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         //To run test files
         // /*
         RefTableTest testfile1 = new RefTableTest();

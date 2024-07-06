@@ -6,30 +6,24 @@ package test;
 
 import service.RefTable;
 
-public class RefTableTest
-{
+public class RefTableTest {
     RefTable obj;
     boolean status;
 
-    public RefTableTest()
-    {
+    public RefTableTest() {
         obj = new RefTable();
         status = true;
     }
 
-    public void test()
-    {
-        try
-        {
+    public void test() {
+        try {
             //Test the total number of characters and indexs matches that of the reference table.
             int total = 43 - 0 + 1; //Total number of characters/indexes in the reference table.
-            if(obj.getCharSize() != total)
-            {
+            if(obj.getCharSize() != total) {
                 status = false;
                 System.out.printf("Test total characters in reference table:\tFAIL.\n");
             }
-            if(obj.getIndexSize() != total)
-            {
+            if(obj.getIndexSize() != total) {
                 status = false;
                 System.out.printf("Test total indexes in reference table:\tFAIL.\n");
             }
@@ -81,30 +75,25 @@ public class RefTableTest
             matchIndxToChar(43, '/');
 
             //To output if all test passes.
-            if(status)
-            {
+            if(status) {
                 System.out.printf("Unit test for RefTable:\tPASS.\n");
             }
         } 
-        catch (Exception e)
-        {
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void matchIndxToChar(int index, char character)
-    {
+    private void matchIndxToChar(int index, char character) {
         int num = obj.getIndex(character);
         char letter = obj.getChar(index);
 
-        if(num == -1 || num != index)
-        {
+        if(num == -1 || num != index) {
             status = false;
             System.out.printf(
                 "Test \'%c\' in reference table:\tError in matching index.\n", character);
         }
-        if(letter == '\0' || letter != character)
-        {
+        if(letter == '\0' || letter != character) {
             status = false;
             System.out.printf(
                 "Test index %d in reference table:\tError in matching character.\n", index);
