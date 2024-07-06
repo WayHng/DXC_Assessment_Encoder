@@ -5,16 +5,13 @@
 package test;
 
 import service.Decoder;
-import service.RefTable;
 
 public class DecoderTest {
     Decoder decoder;
-    RefTable table;
     boolean status;
 
     public DecoderTest() {
         decoder = new Decoder();
-        table = new RefTable();
         status = true;
     }
 
@@ -55,7 +52,6 @@ public class DecoderTest {
 
             if(!plainText.equals(decoder.decode(encodedText))) {
                 System.out.printf("Test Decode %s:\tFAIL\n", encodedText);
-                System.out.printf("%s\n", decoder.decode(encodedText));
                 status = false;
             }
 

@@ -5,20 +5,46 @@
 package test;
 
 import service.Encoder;
-import service.RefTable;
+import service.Decoder;
 
 public class EncoderTest {
     Encoder encoder;
-    RefTable table;
+    Decoder decoder;
     boolean status;
 
-    public Encoder() {
+    public EncoderTest() {
         encoder = new Encoder();
-        table = new RefTable();
+        decoder = new Decoder();
         status = true;
     }
 
     public void test() {
-        String plainText = "HELLO, WORLD"
+        try {
+            String plainText = "HELLO, WORLD";
+            String encodedText = encoder.encode(plainText);
+            
+            //As key is random, the Decoder is required for testing.
+            if(!plainText.equals(decoder.decode(encodedText))) {
+                System.out.printf("Test Encode %s:\tFAIL\n", plainText);
+                status = false;
+            }
+
+            plainText = "123applePIE!";
+            encodedText = encoder.encode(plainText);
+            
+            //As key is random, the Decoder is required for testing.
+            if(!plainText.equals(decoder.decode(encodedText))) {
+                System.out.printf("Test Encode %s:\tFAIL\n", plainText);
+                status = false;
+            }
+
+            //To output if all test passes.
+            if(status) {
+                System.out.printf("Unit test for Encoder:\tPASS.\n");
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

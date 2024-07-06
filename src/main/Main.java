@@ -16,6 +16,9 @@ public class Main
 
         DecoderTest testfile2 = new DecoderTest();
         testfile2.test();
+
+        EncoderTest testfile3 = new EncoderTest();
+        testfile3.test();
         // */
 
         System.out.printf("End of Program.\n");

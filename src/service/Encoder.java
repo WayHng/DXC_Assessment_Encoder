@@ -23,11 +23,19 @@ public class Encoder {
         char[] textArr = plainText.toCharArray();
 
         for(int i = 0; i < textArr.length; i++) {
-            encodeIndex = table.getIndex(textArr(i));
+            int plainIndex = table.getIndex(textArr[i]);
 
             //True if the plain text character exists in reference table.
-            if(encodeIndex != -1) {
-                encodeText += table.getChar(keyIndex + encodeIndex);
+            if(plainIndex != -1) {
+                //Get index of encoded text.
+                int encodeIndex = plainIndex - keyIndex;
+
+                //To wrap around encode text index if it is negative
+                if(encodeIndex < 0) {
+                    encodeIndex += table.getCharSize();
+                }
+
+                encodeText += table.getChar(encodeIndex);
             }
             else {
                 encodeText += textArr[i];
