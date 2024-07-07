@@ -63,12 +63,13 @@ public class Main
                         state = false;
                         break;
                     default:
+                        System.out.printf("Error: Invalid Input.\n\n");
                         break;
                 }
             }
             catch (Exception e) {
                 input.nextLine(); //To consume next line feed that is ingnored in "input.nextInt()".
-                System.out.printf("Error has occurred. Kindly restart from beginning.\n\n");
+                System.out.printf("Error has occurred. Re-try from beginning.\n\n");
             }
         }
 
