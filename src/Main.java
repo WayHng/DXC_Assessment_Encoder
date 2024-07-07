@@ -2,8 +2,6 @@
  * Author: Chew Wei-Hoong
  * Date: 2024 Jul 2
 */
-package main;
-
 import test.*;
 import service.Encoder;
 import service.Decoder;
